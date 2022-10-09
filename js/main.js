@@ -17,10 +17,10 @@ function stringLength(comment, maxLength) {
 
   } return false;
 }
-//stringLength(140);
+stringLength(140);
 
 let num = 0;
-let count = 25;
+const count = 25;
 const descriptions = [
   'Не послушавшись рукописи, наш текст продолжил свой путь.',
   'Ценность яблок кроется в их составе',
@@ -44,5 +44,3 @@ function objectPhoto (){
 }
 
 const photos = Array.from({length:count}, objectPhoto);
-
-
