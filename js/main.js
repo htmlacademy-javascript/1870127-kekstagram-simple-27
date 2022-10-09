@@ -44,3 +44,4 @@ function objectPhoto (){
 }
 
 const photos = Array.from({length:count}, objectPhoto);
+photos();
