@@ -1,33 +1,47 @@
-//https://developer.mozilla.org/
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
+  if (max < min){
+    return NaN;
+  }
   return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
 }
 getRandomInt(0, 100);
 
-//http://kodesource.top/javascript/form/string-length.php 
-function stringlength(str, minlength, maxlength){ 
 
-  let mnlen = minlength;
-  let mxlen = maxlength;
-  console.log(`Длина комментария `+ str.length+ ` символов`);
-  if(str.length<minlength || str.length> maxlength){ 
-    alert("Длина комментария не менее " + minlength + " и не более " + maxlength + " символов");
-    return false;
-  }else { 
-    alert('Ваш комментарий принят');
-  return true;
-}
-}
-stringlength('текст 111111111111 ', 20, 140);
+function stringLength(comment, maxLength) {
 
-//https://basicweb.ru/  https://serblog.ru
-let commet = document.querySelector('.text__description');
-  commet.oninput = function (){
-  this.value = this.value.slice(0, 140);
-  if (input.value.length < 20 ) {
-    alert('Слишком короткий комментарий');
-  return false;
-  }
+  if (comment.length <= maxLength ) {
+    return true;
+
+  } return false;
 }
+stringLength(140);
+
+let num = 0;
+const count = 25;
+const descriptions = [
+  'Не послушавшись рукописи, наш текст продолжил свой путь.',
+  'Ценность яблок кроется в их составе',
+  'Сложно сказать, почему небо темнеет',
+  'Все чаще появляется информация',
+  'Постоянный количественный рост станет частью наших традиций',
+  'Внезапно, солнечных дней всё меньше'
+
+];
+
+function objectPhoto (){
+  num++;
+  return {
+    id: num,
+    url:`photo/${num}.jpg`,
+    description: descriptions[getRandomInt(0,descriptions.length - 1)] ,
+    likes: getRandomInt(15,200),
+    comments: getRandomInt(0,200)
+
+  };
+}
+
+const photos = Array.from({length:count}, objectPhoto);
+photos();
