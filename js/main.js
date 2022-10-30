@@ -1,3 +1,1 @@
-import {Photos} from './app.js';
-
-Photos();
+import './post.js';
