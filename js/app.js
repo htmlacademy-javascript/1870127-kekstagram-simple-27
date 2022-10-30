@@ -12,5 +12,5 @@ function getPhoto (){
     comments: getRandomInt(0,200)
 
   };
-};
+}
 export const photos = Array.from({length:POST_COUNT}, getPhoto);
