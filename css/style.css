@@ -301,6 +301,13 @@ main {
 
   border: none;
 }
+.form_comment_error {
+  display: block;
+  color: #eeecec;
+  font-size: 16px;
+  padding: 10px;
+  text-decoration: none;
+}
 
 .img-upload__start {
   position: relative;
