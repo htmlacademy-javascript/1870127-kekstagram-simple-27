@@ -1,8 +1,10 @@
 import {upLoadForm, commentValidate} from './form-valid.js';
+import './scale.js';
 
 const modalEditForm = document.querySelector('.img-upload__overlay');
 const uploadModalButton = document.querySelector('#upload-file');
 const closeloadModalButton = document.querySelector('.img-upload__cancel');
+
 // закрытие формы о ESC
 const onEscForm = (evt) => {
   if (evt.key === 'Escape') {
