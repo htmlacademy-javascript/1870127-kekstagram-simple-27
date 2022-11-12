@@ -1,4 +1,4 @@
-import {upLoadHandler, validateComment} from './form-valid.js';
+import { upLoadHandler, validateComment } from './form-valid.js';
 import './scale.js';
 
 const modalEditHandler = document.querySelector('.img-upload__overlay');
@@ -8,18 +8,18 @@ const closeloadModalButton = document.querySelector('.img-upload__cancel');
 // закрытие формы о ESC
 const onEscHandler = (evt) => {
   if (evt.key === 'Escape') {
-    closeEditHandler ();
+    closeEditHandler();
   }
 };
 // открывание формы редактирования фото
-function openEditHandler (){
+function openEditHandler() {
   modalEditHandler.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onEscHandler);
   upLoadHandler.addEventListener('submit', validateComment);
 }
 // закрывание формы редактирования фото
-function closeEditHandler (){
+function closeEditHandler() {
   modalEditHandler.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onEscHandler);
@@ -34,4 +34,4 @@ uploadModalButton.addEventListener('change', () => {
   openEditHandler();
 });
 
-export {upLoadHandler};
+export { upLoadHandler };
