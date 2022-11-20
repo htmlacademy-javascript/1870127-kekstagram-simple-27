@@ -16,7 +16,7 @@ function setupPost( {
   postElement.querySelector( '.picture__comments' ).textContent = comments;
   postElement.querySelector( '.picture__likes' ).textContent = likes;
   fragment.appendChild( postElement );
-};
+}
 
 
 function renderPosts() {
@@ -24,7 +24,7 @@ function renderPosts() {
     posts.forEach( setupPost );
     postsContainer.appendChild( fragment );
   } );
-};
+}
 
 postsContainer.append(fragment);
 function getPosts() {
@@ -39,6 +39,6 @@ function getPosts() {
       showError( 'Ошибка загрузки изображений', 'Как нибудь в другой раз' );
     }
   } );
-};
+}
 
 export {renderPosts, getPosts, setupPost};
