@@ -1,4 +1,4 @@
-import './effects.js';
+import {image} from './effects.js';
 
 const scaleInput = document.querySelector('.scale__control--value');
 const smallerButton = document.querySelector('.scale__control--smaller');
@@ -41,4 +41,4 @@ const resetScale = () => {
 smallerButton.addEventListener('click', onSmallerButtonClick);
 biggerButton.addEventListener('click', onBiggerButtonClick);
 
-export { resetScale, smallerButton,biggerButton };
+export { resetScale, smallerButton, biggerButton };
