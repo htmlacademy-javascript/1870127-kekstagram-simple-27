@@ -117,4 +117,4 @@ updateSlider();
 form.addEventListener('change', onFormChange);
 sliderElement.noUiSlider.on('update', onSliderUpdate);
 
-export { resetEffects, sliderElement };
+export { resetEffects, sliderElement, onFormChange, image};
