@@ -1,14 +1,9 @@
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  if (max < min){
-    return NaN;
-  }
-  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-}
-function getStringLength(comment, maxLength) {
-
-  return comment.length <= maxLength;
+function isEscKey(evt) {
+  return evt.key === 'Escape';
 }
 
-export {getRandomInt, getStringLength};
+function resetStyleElement(element) {
+  element.removeAttribute('style');
+  element.removeAttribute('class');
+}
+export { resetStyleElement, isEscKey };
