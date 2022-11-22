@@ -1,4 +1,4 @@
-import './effects.js';
+import {image} from './effects.js';
 
 const scaleInput = document.querySelector('.scale__control--value');
 const smallerButton = document.querySelector('.scale__control--smaller');
