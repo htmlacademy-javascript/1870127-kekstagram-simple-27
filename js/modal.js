@@ -37,7 +37,7 @@ function openEditHandler() {
   smallerButton.addEventListener('click', smallerButton);
   biggerButton.addEventListener('click', biggerButton);
   upLoadSelect.addEventListener('click', onFormChange);
-};
+}
 // закрывание формы редактирования фото
 function closeEditHandler() {
   if (!document.body.classList.contains('is-error')) {
@@ -49,7 +49,7 @@ function closeEditHandler() {
     upLoadHandler.addEventListener('submit', validateComment);
     upLoadSelect.removeEventListener('click', onFormChange);
   }
-};
+}
 
 closeloadModalButton.addEventListener('click', () => {
   closeEditHandler();
@@ -64,7 +64,7 @@ function sendRequest(evt) {
     method: HttpMethod.POST,
     body: new FormData(evt.target),
   });
-};
+}
 
 function sendForm(evt) {
   evt.preventDefault();
@@ -82,7 +82,7 @@ function sendForm(evt) {
       submitHandler.removeAttribute('disabled');
     });
   }
-};
+}
 
 upLoadHandler.addEventListener('submit', sendForm);
 
