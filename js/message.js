@@ -10,7 +10,7 @@ const closeError = (evt) => {
   }
   document.querySelector('.error').remove();
   document.body.classList.remove('is-error');
-  document.removeEventListener('keydown', escKeydownForErrorHandler);
+  // document.removeEventListener('keydown', escKeydownForErrorHandler);
 };
 
 const escKeydownForErrorHandler = (evt) => {
@@ -21,7 +21,7 @@ const escKeydownForErrorHandler = (evt) => {
 
 const closeSuccess = () => {
   document.querySelector('.success').remove();
-  document.removeEventListener('keydown', escKeydownForSuccessHandler);
+  // document.removeEventListener('keydown', escKeydownForSuccessHandler);
 };
 
 const escKeydownForSuccessHandler = (evt) => {

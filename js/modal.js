@@ -30,7 +30,7 @@ const closeEdit = () => {
     document.body.classList.remove('modal-open');
     resetStyleElement(image);
     upLoadSelect.reset();
-    document.removeEventListener('keydown', documentEscHandler);
+    // document.removeEventListener('keydown', documentEscHandler);
     upLoadSelect.removeEventListener('click', onFormChange);
   }
 };
@@ -58,6 +58,7 @@ closeLoadModalButton.addEventListener('click', () => {
 
 uploadModalButton.addEventListener('change', () => {
   openEdit();
+  
 });
 
 function sendRequest(evt) {

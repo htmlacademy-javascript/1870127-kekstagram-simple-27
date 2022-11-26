@@ -36,7 +36,7 @@ const renderPosts = () => {
     postsContainer.appendChild( fragment );
   } ).catch(() => {
     showError( 'Ошибка загрузки', 'Как нибудь в другой раз' );
-  } ); 
+  } );
 };
 
 postsContainer.append(fragment);
