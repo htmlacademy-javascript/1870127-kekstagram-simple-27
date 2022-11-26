@@ -16,18 +16,7 @@ const setupPost = ( {
   postElement.querySelector( '.picture__comments' ).textContent = comments;
   postElement.querySelector( '.picture__likes' ).textContent = likes;
   fragment.appendChild( postElement );
-}
-
-const renderPosts = () => {
-  getPosts().then( ( posts ) => {
-    posts.forEach( setupPost );
-    postsContainer.appendChild( fragment );
-  } ).catch((err) =>{   
-    showError( 'Ошибка загрузки \'' + err.message + '\'', 'Как нибудь в другой раз' );
-  } ); 
-}
-
-postsContainer.append(fragment);
+};
 
 const getPosts = () => {
   return fetch( `${API_URL}/data`, {
@@ -39,6 +28,17 @@ const getPosts = () => {
     }
 
   } );
-}
+};
 
-export {renderPosts, getPosts, setupPost};
+const renderPosts = () => {
+  getPosts().then( ( posts ) => {
+    posts.forEach( setupPost );
+    postsContainer.appendChild( fragment );
+  } ).catch((err) =>{   
+    showError( 'Ошибка загрузки \'' + err.message + '\'', 'Как нибудь в другой раз' );
+  } ); 
+};
+
+postsContainer.append(fragment);
+
+export {renderPosts};

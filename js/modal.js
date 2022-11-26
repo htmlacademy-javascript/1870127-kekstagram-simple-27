@@ -1,4 +1,4 @@
-import { onFormChange, image, effectLevel} from './effects.js';
+import { onFormChange, image, effectLevel } from './effects.js';
 import { resetStyleElement } from './util.js';
 import './post.js';
 import { API_URL, HttpMethod } from './const.js';
@@ -38,7 +38,11 @@ const openEdit = () => {
   upLoadHandler.addEventListener('submit', validateCommentHandler);
   upLoadSelect.addEventListener('click', onFormChange);
   effectLevel.classList.add('hidden');
-}
+};
+
+closeLoadModalButton.addEventListener('click', () => {
+  closeEdit();
+});
 
 // закрывание формы редактирования фото
 const closeEdit = () => {
@@ -50,11 +54,7 @@ const closeEdit = () => {
     document.removeEventListener('keydown', documentEscHandler);
     upLoadSelect.removeEventListener('click', onFormChange);
   }
-}
-
-closeLoadModalButton.addEventListener('click', () => {
-  closeEdit();
-});
+};
 
 uploadModalButton.addEventListener('change', () => {
   openEdit();
@@ -65,18 +65,18 @@ const sendRequest = (evt) => {
     method: HttpMethod.POST,
     body: new FormData(evt.target),
   });
-}
+};
 
 const sendForm = (evt) => {
   evt.preventDefault();
   const submitHandler = evt.target.querySelector('[type="submit"]');
   if (pristine.validate()) {
-      submitHandler.setAttribute('disabled', '');
-      sendRequest(evt).then((data) => {
+    submitHandler.setAttribute('disabled', '');
+    sendRequest(evt).then((data) => {
       if (data.ok) {
         submitHandler.removeAttribute('disabled');
         closeEdit();
-        showSuccess();      
+        showSuccess();
       } else {
         submitHandler.removeAttribute('disabled');
         showError('Ошибка отправки формы');
@@ -87,6 +87,6 @@ const sendForm = (evt) => {
       submitHandler.removeAttribute('disabled');
     });
   }
-}
+};
 
 upLoadHandler.addEventListener('submit', sendForm);

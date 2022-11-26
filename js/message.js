@@ -4,17 +4,31 @@ import { isEscKey } from './util.js';
 const errorMessageModel = document.querySelector('#error').content.querySelector('.error');
 const successMessageModel = document.querySelector('#success').content.querySelector('.success');
 
+const closeError = (evt) => {
+  if (evt.target.closest('.error__inner') && !evt.target.closest('.error__button')) {
+    return;
+  }
+  document.querySelector('.error').remove();
+  document.body.classList.remove('is-error');
+  document.removeEventListener('keydown', escKeydownForErrorHandler);
+};
+
 const escKeydownForErrorHandler = (evt) => {
   if (isEscKey(evt)) {
     closeError(evt);
   }
-}
+};
+
+const closeSuccess = () => {
+  document.querySelector('.success').remove();
+  document.removeEventListener('keydown', escKeydownForSuccessHandler);
+};
 
 const escKeydownForSuccessHandler = (evt) => {
   if (isEscKey(evt)) {
     closeSuccess(evt);
   }
-}
+};
 
 const showError = (textMessage, buttonMessage = null) => {
   const errorNode = errorMessageModel.cloneNode(true);
@@ -26,21 +40,7 @@ const showError = (textMessage, buttonMessage = null) => {
   document.body.classList.add('is-error');
   errorNode.addEventListener('click', closeError);
   document.addEventListener('keydown', escKeydownForErrorHandler);
-}
-
-const closeError = (evt) => {
-  if (evt.target.closest('.error__inner') && !evt.target.closest('.error__button')) {
-    return;
-  }
-  document.querySelector('.error').remove();
-  document.body.classList.remove('is-error');
-  document.removeEventListener('keydown', escKeydownForErrorHandler);
-}
-
-const closeSuccess = () => {
-  document.querySelector('.success').remove();
-  document.removeEventListener('keydown', escKeydownForSuccessHandler);
-}
+};
 
 const showSuccess = () => {
   const successNode = successMessageModel.cloneNode(true);
@@ -48,6 +48,6 @@ const showSuccess = () => {
   document.body.appendChild(successNode);
   closeButton.addEventListener('click', closeSuccess);
   document.addEventListener('keydown', escKeydownForSuccessHandler);
-}
+};
 
 export { showError, showSuccess };
