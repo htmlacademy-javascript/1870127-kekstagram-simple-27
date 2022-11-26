@@ -58,7 +58,6 @@ closeLoadModalButton.addEventListener('click', () => {
 
 uploadModalButton.addEventListener('change', () => {
   openEdit();
-  
 });
 
 function sendRequest(evt) {
