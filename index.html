@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./vendor/nouislider/nouislider.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <title>Кекстаграм</title>
 </head>
 
@@ -36,7 +37,7 @@
                   <!-- Изменение размера изображения -->
                   <fieldset class="img-upload__scale  scale">
                     <button type="button" class="scale__control  scale__control--smaller">Уменьшить</button>
-                    <input type="text" class="scale__control  scale__control--value" value="55%" title="Image Scale" name="scale" readonly>
+                    <input type="text" class="scale__control  scale__control--value" value="100%" title="Image Scale" name="scale" readonly>
                     <button type="button" class="scale__control  scale__control--bigger">Увеличить</button>
                   </fieldset>
 
@@ -105,7 +106,7 @@
 
                 <!-- Добавление комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..."></textarea>
+                    <textarea class="text__description" name="description" minlength="20" maxlength="140" placeholder="Ваш комментарий..." required data-pristine-required-message="Введите коментарий" data-pristine-minlength-message="Минимальная длина 20 символов" data-prestine-axlength-message="Максимальная длина 140 символов"></textarea>
                 </fieldset>
 
                 <!-- Кнопка для отправки данных на сервер -->
@@ -147,7 +148,7 @@
 
   <!-- Сообщение с ошибкой загрузки изображения -->
   <template id="error">
-    <section class="error">
+    <section class="error error_text">
       <div class="error__inner">
         <h2 class="error__title">Ошибка загрузки файла</h2>
         <button type="button" class="error__button">Попробовать ещё раз</button>
@@ -164,6 +165,8 @@
       </div>
     </section>
   </template>
-
+  <script src="./vendor/pristine/pristine.min.js"></script>
+  <script src="./vendor/nouislider/nouislider.js"></script>
+  <script src="./js/main.js" type ="module"></script>
 </body>
 </html>
