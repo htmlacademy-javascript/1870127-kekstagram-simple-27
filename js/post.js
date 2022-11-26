@@ -5,28 +5,19 @@ const postsContainer = document.querySelector('.pictures');
 const postModel = document.querySelector('#picture').content.querySelector('.picture');
 const fragment = document.createDocumentFragment();
 
-function setupPost( {
+const setupPost = ( {
   url,
   comments,
   likes,
-} ) {
+} ) => {
   const postElement = postModel.cloneNode( true );
   postElement.href = url;
   postElement.querySelector( '.picture__img' ).src = url;
   postElement.querySelector( '.picture__comments' ).textContent = comments;
   postElement.querySelector( '.picture__likes' ).textContent = likes;
   fragment.appendChild( postElement );
-}
+};
 
-
-function renderPosts() {
-  getPosts().then( ( posts ) => {
-    posts.forEach( setupPost );
-    postsContainer.appendChild( fragment );
-  } );
-}
-
-postsContainer.append(fragment);
 function getPosts() {
   return fetch( `${API_URL}/data`, {
     method: HttpMethod.GET,
@@ -35,10 +26,19 @@ function getPosts() {
     if ( response.ok ) {
       return response.json();
     }
-    else {
-      showError( 'Ошибка загрузки изображений', 'Как нибудь в другой раз' );
-    }
+
   } );
 }
 
-export {renderPosts, getPosts, setupPost};
+const renderPosts = () => {
+  getPosts().then( ( posts ) => {
+    posts.forEach( setupPost );
+    postsContainer.appendChild( fragment );
+  } ).catch(() => {
+    showError( 'Ошибка загрузки', 'Как нибудь в другой раз' );
+  } );
+};
+
+postsContainer.append(fragment);
+
+export {renderPosts};

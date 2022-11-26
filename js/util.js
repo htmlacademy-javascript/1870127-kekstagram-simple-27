@@ -1,9 +1,8 @@
-function isEscKey(evt) {
-  return evt.key === 'Escape';
-}
+const isEscKey = (evt) => evt.key === 'Escape';
 
-function resetStyleElement(element) {
+const resetStyleElement = (element) => {
   element.removeAttribute('style');
   element.removeAttribute('class');
-}
+};
+
 export { resetStyleElement, isEscKey };

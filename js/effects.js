@@ -107,14 +107,9 @@ const onSliderUpdate = () => {
   effectLevelValue.value = sliderValue;
 };
 
-const resetEffects = () => {
-  chosenEffect = DEFAULT_EFFECT;
-  updateSlider();
-};
-
 updateSlider();
 
 form.addEventListener('change', onFormChange);
 sliderElement.noUiSlider.on('update', onSliderUpdate);
 
-export { resetEffects, sliderElement, onFormChange, image};
+export { sliderElement, onFormChange, image, effectLevel};
