@@ -18,7 +18,7 @@ const setupPost = ( {
   fragment.appendChild( postElement );
 };
 
-const getPosts = () => {
+function getPosts() {
   return fetch( `${API_URL}/data`, {
     method: HttpMethod.GET,
     headers: JSON_HEADERS,
@@ -28,14 +28,14 @@ const getPosts = () => {
     }
 
   } );
-};
+}
 
 const renderPosts = () => {
   getPosts().then( ( posts ) => {
     posts.forEach( setupPost );
     postsContainer.appendChild( fragment );
-  } ).catch((err) =>{   
-    showError( 'Ошибка загрузки \'' + err.message + '\'', 'Как нибудь в другой раз' );
+  } ).catch(() => {
+    showError( 'Ошибка загрузки', 'Как нибудь в другой раз' );
   } ); 
 };
 

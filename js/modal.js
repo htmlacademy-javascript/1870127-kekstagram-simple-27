@@ -23,6 +23,18 @@ const validateCommentHandler = (evt) => {
   }
 };
 
+// закрывание формы редактирования фото
+const closeEdit = () => {
+  if (!document.body.classList.contains('is-error')) {
+    modalEditHandler.classList.add('hidden');
+    document.body.classList.remove('modal-open');
+    resetStyleElement(image);
+    upLoadSelect.reset();
+    document.removeEventListener('keydown', documentEscHandler);
+    upLoadSelect.removeEventListener('click', onFormChange);
+  }
+};
+
 // закрытие формы о ESC
 const documentEscHandler = (evt) => {
   if (evt.key === 'Escape') {
@@ -44,28 +56,16 @@ closeLoadModalButton.addEventListener('click', () => {
   closeEdit();
 });
 
-// закрывание формы редактирования фото
-const closeEdit = () => {
-  if (!document.body.classList.contains('is-error')) {
-    modalEditHandler.classList.add('hidden');
-    document.body.classList.remove('modal-open');
-    resetStyleElement(image);
-    upLoadSelect.reset();
-    document.removeEventListener('keydown', documentEscHandler);
-    upLoadSelect.removeEventListener('click', onFormChange);
-  }
-};
-
 uploadModalButton.addEventListener('change', () => {
   openEdit();
 });
 
-const sendRequest = (evt) => {
+function sendRequest(evt) {
   return fetch(API_URL, {
     method: HttpMethod.POST,
     body: new FormData(evt.target),
   });
-};
+}
 
 const sendForm = (evt) => {
   evt.preventDefault();
